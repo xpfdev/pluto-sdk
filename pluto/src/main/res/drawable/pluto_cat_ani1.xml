@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_000" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_001" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_002" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_003" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_004" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_005" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_006" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_007" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_008" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_009" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_010" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_011" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_012" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_013" />
+    <item android:duration="60" android:drawable="@drawable/pluto_cat1_014" />
+</animation-list>

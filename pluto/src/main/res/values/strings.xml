@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pluto_send_code"><u>Send Code</u></string>
+    <string name="pluto_resend_code"><u>Resend Code</u></string>
+    <string name="pluto_trade_history"><u>Trade History</u></string>
+    <string name="pluto_log_out"><u>Log Out</u></string>
+    <string name="pluto_fish_2_eth_worth">≈ %s  ETH</string>
+    <string name="pluto_eth_2_dollar_worth">≈ $%s</string>
+    <string name="pluto_eth_mini_withdraw">Minimum: %sETH</string>
+    <string name="pluto_balance">Balance: %s</string>
+    <string name="pluto_minimum">Minimum：%s</string>
+    <string name="pluto_fee">Fee：%s</string>
+    <string name="pluto_fee_eth">Fee：%sETH</string>
+    <string name="pluto_fee_fish">Fee：%sFISH</string>
+</resources>

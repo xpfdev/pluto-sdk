@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pluto.sdk">
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:xlargeScreens="true" />
+
+    <queries>
+        <intent>
+            <action android:name=
+                "android.support.customtabs.action.CustomTabsService" />
+        </intent>
+    </queries>
+
+    <application android:usesCleartextTraffic="true">
+        <activity
+            android:name="com.pluto.view.CoinAccountActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="com.pluto.view.CustomTabActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="com.pluto.view.EmailActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="com.pluto.view.LoginActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="com.pluto.view.SettingActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="com.pluto.view.WalletActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="com.pluto.view.WithdrawEthActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="com.pluto.view.WithdrawHistoryActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="com.pluto.view.WithdrawFishActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="I9Nbnf8uez9lzNH2AkGt0hwb8l98Cyeq1PAcTocUHJkSe9O1Re2JT283T9GTmUnO6fTyT2z4_si0V0DUfgyO87" />
+
+    </application>
+
+</manifest>

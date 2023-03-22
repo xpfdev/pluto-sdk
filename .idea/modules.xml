@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PlutoSDK.iml" filepath="$PROJECT_DIR$/.idea/modules/PlutoSDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PlutoSDK.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PlutoSDK.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PlutoSDK.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PlutoSDK.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PlutoSDK.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PlutoSDK.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PlutoSDK.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PlutoSDK.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game1001/PlutoSDK.game1001.iml" filepath="$PROJECT_DIR$/.idea/modules/game1001/PlutoSDK.game1001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game1001/PlutoSDK.game1001.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/game1001/PlutoSDK.game1001.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game1001/PlutoSDK.game1001.main.iml" filepath="$PROJECT_DIR$/.idea/modules/game1001/PlutoSDK.game1001.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game1001/PlutoSDK.game1001.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/game1001/PlutoSDK.game1001.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game1002/PlutoSDK.game1002.iml" filepath="$PROJECT_DIR$/.idea/modules/game1002/PlutoSDK.game1002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game1002/PlutoSDK.game1002.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/game1002/PlutoSDK.game1002.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game1002/PlutoSDK.game1002.main.iml" filepath="$PROJECT_DIR$/.idea/modules/game1002/PlutoSDK.game1002.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game1002/PlutoSDK.game1002.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/game1002/PlutoSDK.game1002.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pluto/PlutoSDK.pluto.iml" filepath="$PROJECT_DIR$/.idea/modules/pluto/PlutoSDK.pluto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pluto/PlutoSDK.pluto.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/pluto/PlutoSDK.pluto.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pluto/PlutoSDK.pluto.main.iml" filepath="$PROJECT_DIR$/.idea/modules/pluto/PlutoSDK.pluto.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pluto/PlutoSDK.pluto.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/pluto/PlutoSDK.pluto.unitTest.iml" />
+    </modules>
+  </component>
+</project>

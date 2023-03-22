@@ -1,0 +1,67 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    def store_file = project.rootProject.file('app/pluto.jks')
+    def key_alias = 'pluto'
+    def key_password = 'mmobay2022'
+    def store_password = 'mmobay2022'
+
+    signingConfigs {
+        debug {
+            storeFile store_file
+            keyAlias key_alias
+            keyPassword key_password
+            storePassword store_password
+        }
+        release {
+            storeFile store_file
+            keyAlias key_alias
+            keyPassword key_password
+            storePassword store_password
+        }
+    }
+
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.mmobay.plutodemo"
+        minSdkVersion 23
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar","*.aar"])
+
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation project(path: ':pluto')
+
+    implementation "androidx.browser:browser:1.5.0"
+    implementation 'androidx.recyclerview:recyclerview:1.3.0'
+    implementation 'com.applovin:applovin-sdk:+'
+    implementation 'com.applovin.mediation:google-adapter:+'
+    implementation 'com.applovin.mediation:unityads-adapter:+'
+    implementation 'com.facebook.android:facebook-login:latest.release'
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.3.0'
+}

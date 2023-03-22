@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="@dimen/dp_448"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/pluto_bg1"/>
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_26"
+            android:textSize="@dimen/sp_16"
+            android:textColor="#B54F01"
+            android:text="Confirmation"/>
+
+        <RelativeLayout
+            android:id="@+id/layout_token_content"
+            android:layout_width="@dimen/dp_268"
+            android:layout_height="@dimen/dp_50"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/txt_title"
+            android:layout_marginTop="@dimen/dp_30">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/pluto_bg3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingStart="@dimen/dp_16"
+                android:textColor="#5C3024"
+                android:textSize="@dimen/sp_16"
+                android:text="TOKEN"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:paddingEnd="@dimen/dp_16"
+                android:textColor="#1D0E09"
+                android:textSize="@dimen/sp_20"
+                android:text="ETH"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_amount_content"
+            android:layout_width="@dimen/dp_268"
+            android:layout_height="@dimen/dp_50"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_token_content"
+            android:layout_marginTop="@dimen/dp_20">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/pluto_bg3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingStart="@dimen/dp_16"
+                android:textColor="#5C3024"
+                android:textSize="@dimen/sp_16"
+                android:text="Amount"/>
+
+            <TextView
+                android:id="@+id/txt_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingEnd="@dimen/dp_16"
+                android:text="0"
+                android:textColor="#1D0E09"
+                android:textSize="@dimen/sp_20" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_address_content"
+            android:layout_width="@dimen/dp_268"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_amount_content"
+            android:layout_marginTop="@dimen/dp_40">
+
+            <TextView
+                android:id="@+id/txt_address_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp_6"
+                android:textColor="#5C3024"
+                android:textSize="@dimen/sp_14"
+                android:text="Withdraw Address"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:layout_below="@id/txt_address_tips">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/pluto_bg3"/>
+
+                <TextView
+                    android:id="@+id/txt_address"
+                    android:layout_width="@dimen/dp_250"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="#5C3024"
+                    android:text=""/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_fee_content"
+            android:layout_width="@dimen/dp_268"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_address_content"
+            android:layout_marginTop="@dimen/dp_10">
+
+            <ImageView
+                android:id="@+id/img_eth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/pluto_coin_eth_s"/>
+
+            <TextView
+                android:id="@+id/txt_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/img_eth"
+                android:paddingEnd="@dimen/dp_4"
+                android:textSize="@dimen/sp_12"
+                android:textColor="#5C3024"
+                android:text="Fee：0"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/dp_280"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_fee_content"
+            android:layout_marginTop="@dimen/dp_20">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pluto_button5"
+                android:stateListAnimator="@animator/button_scale"
+                android:textSize="@dimen/sp_18"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:text="Cancel"/>
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/pluto_button4"
+                android:stateListAnimator="@animator/button_scale"
+                android:textSize="@dimen/sp_18"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:text="Confirm"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.pluto.view.PlutoBackground
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_30"
+        android:background="@drawable/pluto_back" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_244"
+        android:layout_marginTop="@dimen/dp_34"
+        android:background="@drawable/pluto_ornament1" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_84"
+        android:background="@drawable/pluto_ornament2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_312"
+        android:layout_marginTop="@dimen/dp_214"
+        android:background="@drawable/pluto_ornament2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_118"
+        android:background="@drawable/pluto_banner" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_260"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_login_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/pluto_login_google"
+            android:stateListAnimator="@animator/button_scale"
+            android:contentDescription="google"/>
+
+        <Button
+            android:id="@+id/btn_login_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_16"
+            android:background="@drawable/pluto_login_facebook"
+            android:stateListAnimator="@animator/button_scale"
+            android:contentDescription="facebook"/>
+
+        <Button
+            android:id="@+id/btn_login_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_16"
+            android:background="@drawable/pluto_login_email"
+            android:stateListAnimator="@animator/button_scale"
+            android:visibility="gone"
+            android:contentDescription="email"/>
+
+        <RelativeLayout
+            android:id="@+id/layout_more"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/img_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/pluto_more"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/img_carts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/pluto_cat_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_72"
+            android:textSize="@dimen/sp_12"
+            android:textColor="#854A3A"
+            android:text="Powered by Pluto"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

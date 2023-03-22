@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_288"
+        android:layout_height="@dimen/dp_90"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/pluto_bg2"/>
+
+        <RelativeLayout
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="@dimen/dp_60"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30">
+
+                <TextView
+                    android:id="@+id/txt_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:text="ETH/FISH"
+                    android:textColor="#5C3024"/>
+
+                <TextView
+                    android:id="@+id/txt_from_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="@dimen/sp_10"
+                    android:text="9999"
+                    android:textColor="#FF7E42"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30"
+                android:layout_alignParentBottom="true">
+
+                <TextView
+                    android:id="@+id/txt_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textColor="#5C3024"
+                    android:text="2023/01/10/ 22:22:10"
+                    android:textSize="@dimen/sp_8"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true">
+
+                    <TextView
+                        android:id="@+id/txt_to_amount"
+                        android:layout_width="@dimen/dp_160"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:visibility="visible"
+                        android:textColor="#FF7E42"
+                        android:text="999"
+                        android:textSize="@dimen/sp_8"/>
+
+                    <TextView
+                        android:id="@+id/txt_fee"
+                        android:layout_width="@dimen/dp_160"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:visibility="visible"
+                        android:textColor="#FF7E42"
+                        android:text="9999"
+                        android:textSize="@dimen/sp_8"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

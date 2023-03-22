@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pluto_background_green">#C7E89A</color>
+    <color name="pluto_background_yellow">#FADB9A</color>
+    <color name="pluto_background_red">#F1A17D</color>
+    <!--透明-->
+    <color name="transparent">#00000000</color>
+    <!--半透明-->
+    <color name="translucent">#22050505</color>
+</resources>

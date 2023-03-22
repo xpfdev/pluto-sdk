@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.pluto.view.PlutoBackground
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_50"
+        android:background="@drawable/pluto_back2" />
+
+    <RelativeLayout
+        android:id="@+id/layout_fish_content"
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="@dimen/dp_292"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_120"
+        android:layout_marginBottom="@dimen/dp_10">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/pluto_bg1"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp_288"
+            android:layout_height="@dimen/dp_252"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/pluto_bg2"/>
+
+        <RelativeLayout
+            android:id="@+id/layout_fish_balance"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_50"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/img_fish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/pluto_coin_fish_l"/>
+
+            <TextView
+                android:id="@+id/txt_fish_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/img_fish"
+                android:paddingStart="@dimen/dp_4"
+                android:includeFontPadding="false"
+                android:textColor="#1D0E09"
+                android:textSize="@dimen/sp_38"
+                android:text="" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/txt_fish_balance"
+                android:layout_alignParentEnd="true"
+                android:paddingBottom="@dimen/dp_3"
+                android:text="FISH"
+                android:textColor="#5C3024"
+                android:textSize="@dimen/sp_14" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_fish_worth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/layout_fish_balance"
+            android:layout_below="@+id/layout_fish_balance"
+            android:paddingTop="@dimen/dp_6"
+            android:paddingBottom="@dimen/dp_6"
+            android:textColor="#5C3024"
+            android:textSize="@dimen/sp_14"
+            android:text="≈0  ETH"/>
+
+        <RelativeLayout
+            android:id="@+id/layout_progress"
+            android:layout_width="@dimen/dp_300"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/txt_fish_worth"
+            android:paddingBottom="@dimen/dp_16">
+
+            <ImageView
+                android:id="@+id/img_cat"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_34"/>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_240"
+                android:layout_height="@dimen/dp_20"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/img_cat">
+
+                <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:id="@+id/bar_fish"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:secondaryProgress="100"
+                    android:progressDrawable="@drawable/pluto_coin_bar"/>
+
+                <TextView
+                    android:id="@+id/txt_fish_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingStart="@dimen/dp_10"
+                    android:textSize="@dimen/sp_12"
+                    android:textColor="#ffffff"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_progress"
+            android:visibility="visible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pluto_button3"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/txt_withdraw_count_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:text="Withdraw Countdown"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/txt_withdraw_count_down">
+
+                    <TextView
+                        android:id="@+id/txt_days_num"
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="#885F38"
+                        android:textAllCaps="false"
+                        android:text="00"/>
+
+                    <TextView
+                        android:id="@+id/txt_days_val"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/txt_days_num"
+                        android:layout_alignBottom="@+id/txt_days_num"
+                        android:textSize="@dimen/sp_10"
+                        android:textColor="#ffffff"
+                        android:textAllCaps="false"
+                        android:text="Days"/>
+
+                    <TextView
+                        android:id="@+id/txt_hours_num"
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_toEndOf="@id/txt_days_val"
+                        android:layout_alignBottom="@+id/txt_days_val"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="#885F38"
+                        android:textAllCaps="false"
+                        android:text="00"/>
+
+                    <TextView
+                        android:id="@+id/txt_hours_val"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/txt_hours_num"
+                        android:layout_alignBottom="@+id/txt_hours_num"
+                        android:textSize="@dimen/sp_10"
+                        android:textColor="#ffffff"
+                        android:textAllCaps="false"
+                        android:text="Hours"/>
+
+                    <TextView
+                        android:id="@+id/txt_mins_num"
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_toEndOf="@id/txt_hours_val"
+                        android:layout_alignBottom="@+id/txt_hours_val"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="#885F38"
+                        android:textAllCaps="false"
+                        android:text="00"/>
+
+                    <TextView
+                        android:id="@+id/txt_mins_val"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/txt_mins_num"
+                        android:layout_alignBottom="@+id/txt_mins_num"
+                        android:textSize="@dimen/sp_10"
+                        android:textColor="#ffffff"
+                        android:textAllCaps="false"
+                        android:text="Mins"/>
+
+                    <TextView
+                        android:id="@+id/txt_second_num"
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_toEndOf="@id/txt_mins_val"
+                        android:layout_alignBottom="@+id/txt_mins_val"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="#885F38"
+                        android:textAllCaps="false"
+                        android:text="00"/>
+
+                    <TextView
+                        android:id="@+id/txt_second_val"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/txt_second_num"
+                        android:layout_alignBottom="@+id/txt_second_num"
+                        android:textSize="@dimen/sp_10"
+                        android:textColor="#ffffff"
+                        android:textAllCaps="false"
+                        android:text="Seconds"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_cash_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_progress"
+            android:background="@drawable/pluto_button2"
+            android:stateListAnimator="@animator/button_scale"
+            android:visibility="invisible"
+            android:textSize="@dimen/sp_18"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:text="Cash Out" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_106">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/pluto_title_bg"/>
+
+        <RelativeLayout
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_8">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/pluto_star"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="#B54F01"
+                android:textSize="@dimen/sp_16"
+                android:text="Earnings"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/pluto_star"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_eth_content"
+        android:visibility="visible"
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="@dimen/dp_252"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layout_fish_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/pluto_bg1"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp_288"
+            android:layout_height="@dimen/dp_212"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_16"
+            android:background="@drawable/pluto_bg2"/>
+
+        <RelativeLayout
+            android:id="@+id/layout_eth_balance"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_46"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/img_eth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/pluto_coin_eth_l"/>
+
+            <TextView
+                android:id="@+id/txt_eth_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/img_eth"
+                android:paddingStart="@dimen/dp_4"
+                android:includeFontPadding="false"
+                android:textSize="@dimen/sp_38"
+                android:textColor="#1D0E09"
+                android:text="" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/txt_eth_balance"
+                android:layout_alignParentEnd="true"
+                android:paddingBottom="@dimen/dp_3"
+                android:textColor="#5C3024"
+                android:textSize="@dimen/sp_14"
+                android:text="ETH"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_eth_worth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/layout_eth_balance"
+            android:layout_below="@id/layout_eth_balance"
+            android:paddingTop="@dimen/dp_6"
+            android:paddingBottom="@dimen/dp_6"
+            android:textColor="#5C3024"
+            android:textSize="@dimen/sp_14"
+            android:text="~0$"/>
+
+        <Button
+            android:id="@+id/btn_eth_claim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_eth_worth"
+            android:background="@drawable/pluto_button2"
+            android:stateListAnimator="@animator/button_scale"
+            android:textSize="@dimen/sp_18"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:text="Claim" />
+
+        <TextView
+            android:id="@+id/txt_eth_min_withdraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/btn_eth_claim"
+            android:paddingTop="@dimen/dp_20"
+            android:textColor="#5C3024"
+            android:textSize="@dimen/sp_12"
+            android:text="Minimum: 0.001ETH"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_history"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_50"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textColor="#5C3024"
+        android:textSize="@dimen/sp_12"
+        android:text="@string/pluto_trade_history"/>
+
+</RelativeLayout>

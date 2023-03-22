@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.pluto.view.PlutoBackground
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_50"
+        android:background="@drawable/pluto_back" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_608"
+        android:background="@drawable/pluto_ornament3" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_108"
+        android:background="@drawable/pluto_ornament3"
+        android:rotation="-45"
+        android:scaleX="0.5"
+        android:scaleY="0.5" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/pluto_ornament3"
+        android:rotation="-15"
+        android:scaleX="0.5"
+        android:scaleY="0.5" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_328"
+        android:layout_marginTop="@dimen/dp_278"
+        android:background="@drawable/pluto_ornament4" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/dp_722"
+        android:background="@drawable/pluto_ornament4"
+        android:scaleX="0.8"
+        android:scaleY="0.8"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_142"
+        android:textColor="#5C3024"
+        android:textSize="@dimen/sp_26"
+        android:text="Login Pluto Account"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_288">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/pluto_email_input"
+            android:contentDescription="添加focusableInTouchMode为true为了解决后面一个EditText clearFocus方法无效"/>
+
+        <EditText
+            android:id="@+id/txt_email"
+            android:layout_width="@dimen/dp_270"
+            android:layout_height="@dimen/dp_52"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_20"
+            android:background="@null"
+            android:hint="Email address"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionDone"
+            android:textCursorDrawable="@drawable/pluto_color_cursor"
+            android:textSize="@dimen/sp_14"
+            android:textIsSelectable="true"
+            android:textColorHint="#B54F01"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_code_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_360">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/pluto_email_input"
+            android:contentDescription="添加focusableInTouchMode为true为了解决后面一个EditText clearFocus方法无效"/>
+
+        <EditText
+            android:id="@+id/txt_code"
+            android:layout_width="@dimen/dp_160"
+            android:layout_height="@dimen/dp_52"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_20"
+            android:background="@null"
+            android:hint="Email verification code"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:textCursorDrawable="@drawable/pluto_color_cursor"
+            android:maxLength="6"
+            android:textSize="@dimen/sp_14"
+            android:textIsSelectable="true"
+            android:textColorHint="#B54F01"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_send"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_52"
+        android:layout_alignEnd="@id/layout_code_content"
+        android:layout_alignBottom="@id/layout_code_content"
+        android:paddingRight="@dimen/dp_20">
+
+        <TextView
+            android:id="@+id/txt_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="#9B9B9B"
+            android:textSize="@dimen/sp_14"
+            android:text="@string/pluto_send_code"
+            android:visibility="visible"/>
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/btn_login_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_460"
+        android:stateListAnimator="@animator/button_scale"
+        android:background="@drawable/pluto_button1"
+        android:contentDescription="LoginEmail"/>
+
+</RelativeLayout>

@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.pluto.view.PlutoBackground
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_50"
+        android:background="@drawable/pluto_back2" />
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="@dimen/dp_640"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_120">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/pluto_bg1"/>
+
+        <RelativeLayout
+            android:id="@+id/layout_fish_content"
+            android:layout_width="@dimen/dp_288"
+            android:layout_height="@dimen/dp_150"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_16">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/pluto_bg2"/>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_250"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_30"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:id="@+id/txt_fish_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:paddingBottom="@dimen/dp_4"
+                    android:textSize="@dimen/sp_12"
+                    android:textColor="#5C3024"
+                    android:text="Balance: 0"/>
+
+                <RelativeLayout
+                    android:id="@+id/layout_fish_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/txt_fish_balance"
+                    android:focusableInTouchMode="true"
+                    android:contentDescription="添加focusableInTouchMode为true为了解决后面一个EditText clearFocus方法无效">
+
+                    <EditText
+                        android:id="@+id/txt_fish_withdraw_num"
+                        android:layout_width="@dimen/dp_136"
+                        android:layout_height="@dimen/dp_48"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:inputType="number"
+                        android:hint="0"
+                        android:maxLength="10"
+                        android:textColor="#1D0E09"
+                        android:textSize="@dimen/sp_38"/>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_max_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true">
+
+                        <TextView
+                            android:id="@+id/txt_max"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingEnd="@dimen/dp_4"
+                            android:textSize="@dimen/sp_14"
+                            android:textColor="#FF7E42"
+                            android:text="MAX"/>
+
+                        <ImageView
+                            android:id="@+id/img_fish"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/txt_max"
+                            android:background="@drawable/pluto_coin_fish_m"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/img_fish"
+                            android:paddingStart="@dimen/dp_4"
+                            android:textColor="#5C3024"
+                            android:textSize="@dimen/sp_18"
+                            android:text="FISH"/>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txt_fish_mini"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/layout_fish_num"
+                    android:paddingTop="@dimen/dp_16"
+                    android:textSize="@dimen/sp_12"
+                    android:textColor="#5C3024"
+                    android:text="Minimum：0"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_down_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_fish_content"
+            android:paddingTop="@dimen/dp_20"
+            android:paddingBottom="@dimen/dp_20">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/pluto_down_arrow"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_eth_content"
+            android:layout_width="@dimen/dp_288"
+            android:layout_height="@dimen/dp_100"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_down_arrow">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/pluto_bg2"/>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_250"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:id="@+id/txt_eth_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:hint="0"
+                    android:textColor="#1D0E09"
+                    android:textSize="@dimen/sp_38"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true">
+
+                    <ImageView
+                        android:id="@+id/img_eth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/pluto_coin_eth_m"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/img_eth"
+                        android:paddingStart="@dimen/dp_4"
+                        android:textColor="#5C3024"
+                        android:textSize="@dimen/sp_18"
+                        android:text="ETH"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_address_content"
+            android:layout_width="@dimen/dp_288"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_eth_content"
+            android:paddingTop="@dimen/dp_26"
+            android:paddingBottom="@dimen/dp_10">
+
+            <RelativeLayout
+                android:id="@+id/layout_address_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_address_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="@dimen/dp_6"
+                    android:textColor="#5C3024"
+                    android:textSize="@dimen/sp_14"
+                    android:text="Withdraw address"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/txt_address_tips"
+                    android:background="@drawable/pluto_tips"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_radio_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_address_tips"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingBottom="@dimen/dp_10">
+
+                <RelativeLayout
+                    android:id="@+id/layout_have_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_10">
+
+                    <ImageView
+                        android:id="@+id/img_have_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/pluto_radio_choose"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/img_have_address"
+                        android:paddingStart="@dimen/dp_4"
+                        android:textColor="#5C3024"
+                        android:textSize="@dimen/sp_12"
+                        android:text="I already have the BNBCHIAN address"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_not_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_have_address">
+
+                    <ImageView
+                        android:id="@+id/img_not_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/pluto_radio_unchoose"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/img_not_address"
+                        android:paddingStart="@dimen/dp_4"
+                        android:textColor="#5C3024"
+                        android:textSize="@dimen/sp_12"
+                        android:text="I do not have  BNBCHIAN address，transfer to ETH address Integrated in my account"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_input_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_radio_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/pluto_bg3"
+                    android:focusableInTouchMode="true"
+                    android:contentDescription="添加focusableInTouchMode为true为了解决后面一个EditText clearFocus方法无效"/>
+
+                <EditText
+                    android:id="@+id/txt_wallet_address"
+                    android:layout_width="@dimen/dp_270"
+                    android:layout_height="@dimen/dp_48"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:textSize="@dimen/sp_14"
+                    android:hint="Please enter ETH address(BNBCHAIN)"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_fee_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_address_content"
+            android:layout_alignEnd="@id/layout_address_content">
+
+            <TextView
+                android:id="@+id/txt_fee_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingEnd="@dimen/dp_4"
+                android:textSize="@dimen/sp_12"
+                android:textColor="#5C3024"
+                android:text="Fee:0"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/txt_fee_num"
+                android:background="@drawable/pluto_coin_fish_s"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/dp_288"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_fee_content"
+            android:paddingTop="@dimen/dp_10">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pluto_button5"
+                android:stateListAnimator="@animator/button_scale"
+                android:textSize="@dimen/sp_18"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:text="Cancel"/>
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/pluto_button4"
+                android:stateListAnimator="@animator/button_scale"
+                android:textSize="@dimen/sp_18"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:text="Confirm"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_106">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/pluto_title_bg"/>
+
+        <RelativeLayout
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_8">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/pluto_star"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="#B54F01"
+                android:textSize="@dimen/sp_16"
+                android:text="FISH Withdraw"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/pluto_star"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
