@@ -74,6 +74,5 @@ dependencies {
     implementation 'com.applovin.mediation:google-adapter:+'
     implementation 'com.applovin.mediation:unityads-adapter:+'
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.3.0'
-    implementation 'com.github.xpfdev:pluto-sdk:1.0.0'
 
 }
