@@ -100,7 +100,6 @@ public class SettingActivity extends PlutoActivity {
     private void openWalletForCustomTap() {
         String url = CoreSDK.getIsDebug() ? Config.DebugWalletUrl : Config.WalletUrl;
         url += "?token=" + CoreSDK.getInstance().getAccount().getToken() + "&plantformtype=android&hideback=1&t=" + System.currentTimeMillis();
-        Log.i(TAG, "url==>" + url);
         Intent intent = new Intent(this, CustomTabActivity.class);
         intent.putExtra("url", url);
         intent.setAction(CustomTabActivity.CUSTOM_TAB_OPEN_ACTION);

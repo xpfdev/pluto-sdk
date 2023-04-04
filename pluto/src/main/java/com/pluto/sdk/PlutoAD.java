@@ -176,7 +176,7 @@ public class PlutoAD implements MaxRewardedAdListener {
         revenue = Double.parseDouble(temp);
         double ratio = CoreSDK.getInstance().getAccount().getDivideIntoRatio();
         //1USD -> 100000FISH
-        int amount = (int) (revenue * ratio * 100000);
+        int amount = (int) (100000 * revenue * ratio);
         CoreSDK.getInstance().adPlayCompleted(amount);
     }
 

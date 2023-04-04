@@ -2,7 +2,7 @@ package com.pluto.config;
 
 public class Config {
     //
-    public static String Version = "1.0.0";
+    public static String Version = "1.0.1";
     //
     public static String Code = "1";
     //Gitbook钱包说明地址
