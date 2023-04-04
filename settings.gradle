@@ -1,3 +1,2 @@
 rootProject.name = "PlutoSDK"
-include ':app'
 include ':pluto'
