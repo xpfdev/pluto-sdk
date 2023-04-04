@@ -30,6 +30,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.pluto.config.PFType;
 import com.pluto.sdk.CommNetResponseListener;
 import com.pluto.sdk.CoreSDK;
@@ -58,6 +59,8 @@ public class LoginActivity extends PlutoActivity {
     //
     private CallbackManager mCallbackManager = null;
     //
+    private FirebaseAnalytics mFirebaseAnalytics = null;
+    //
     private RelativeLayout mRlMore;
     //
     private Button mBtnEmail;
@@ -67,6 +70,8 @@ public class LoginActivity extends PlutoActivity {
         super.onCreate(savedInstanceState);
         int resId = CoreSDK.getLowScreen() ? R.layout.pluto_login_view_low : R.layout.pluto_login_view;
         setContentView(resId);
+        //
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         //
         ImageView imgBack = findViewById(R.id.img_back);
         imgBack.setOnClickListener(v -> {
@@ -114,6 +119,9 @@ public class LoginActivity extends PlutoActivity {
                 String token = credential.getGoogleIdToken();
                 loginSuccess(PFType.GOOGLE, userId, token);
             } catch (ApiException e) {
+                //
+                loginErrorEvent(PFType.GOOGLE, "api error " + e.getStatusCode());
+                //
                 Log.i(TAG, "one tap get credential code==>" + e.getStatusCode());
                 CoreSDK.getInstance().loginFailed(null);
                 switch (e.getStatusCode()) {
@@ -136,6 +144,9 @@ public class LoginActivity extends PlutoActivity {
      *
      */
     private void loginGoogle() {
+        //
+        loginStartEvent(PFType.GOOGLE);
+        //
         if (mOneTapClient == null) {
             mOneTapClient = Identity.getSignInClient(this);
         }
@@ -150,6 +161,9 @@ public class LoginActivity extends PlutoActivity {
             }
             //
             if (serverClientId == null || serverClientId.equals("")) {
+                //
+                loginErrorEvent(PFType.GOOGLE, "clientId error");
+                //
                 Log.w(TAG, "Google server clientId is empty");
                 CoreSDK.getInstance().loginFailed(null);
                 return;
@@ -175,6 +189,9 @@ public class LoginActivity extends PlutoActivity {
                     startIntentSenderForResult(beginSignInResult.getPendingIntent().getIntentSender(),
                             RC_ONE_TAP, null, 0, 0, 0, null);
                 } catch (IntentSender.SendIntentException e) {
+                    //
+                    loginErrorEvent(PFType.GOOGLE, "intent error");
+                    //
                     Log.w(TAG, "google login error==>" + e);
                     CoreSDK.getInstance().loginFailed(null);
                 }
@@ -182,6 +199,9 @@ public class LoginActivity extends PlutoActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                //
+                loginErrorEvent(PFType.GOOGLE, "listener error");
+                //
                 Log.w(TAG, "google login failure==>" + e);
                 CoreSDK.hideLoading();
                 CoreSDK.getInstance().loginFailed(null);
@@ -193,6 +213,9 @@ public class LoginActivity extends PlutoActivity {
      *
      */
     private void loginFacebook() {
+        //
+        loginStartEvent(PFType.FACEBOOK);
+        //
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
         if (accessToken != null && !accessToken.isExpired()) {
             String userId = accessToken.getUserId();
@@ -213,12 +236,18 @@ public class LoginActivity extends PlutoActivity {
 
                 @Override
                 public void onCancel() {
+                    //
+                    loginErrorEvent(PFType.FACEBOOK, "cancel error");
+                    //
                     Log.i(TAG, "Facebook login cancel");
                     CoreSDK.getInstance().loginFailed(null);
                 }
 
                 @Override
                 public void onError(@NonNull FacebookException e) {
+                    //
+                    loginErrorEvent(PFType.FACEBOOK, "inner error");
+                    //
                     Log.i(TAG, "Facebook login error: " + e);
                     LoginManager.getInstance().logOut();
                     CoreSDK.getInstance().loginFailed(null);
@@ -244,6 +273,9 @@ public class LoginActivity extends PlutoActivity {
      * @param token
      */
     private void loginSuccess(PFType type, String userId, String token) {
+        //
+        loginSdkEvent(type);
+        //
         try {
             JSONObject obj = new JSONObject();
             obj.put("userid", userId);
@@ -258,6 +290,8 @@ public class LoginActivity extends PlutoActivity {
                     }
                     //
                     if (success) {
+                        loginFinishEvent(type);
+                        //
                         finish();
                     } else {
                         if (message != null && !message.equals("")) {
@@ -270,5 +304,47 @@ public class LoginActivity extends PlutoActivity {
             e.printStackTrace();
             CoreSDK.getInstance().loginFailed(null);
         }
+    }
+
+    /**
+     * 登录开始事件
+     * @param type 登录方式
+     */
+    private void loginStartEvent(PFType type) {
+        Bundle bundle = new Bundle();
+        bundle.putString("method", type.name());
+        mFirebaseAnalytics.logEvent("p_login_platform_start", bundle);
+    }
+
+    /**
+     * 登录SDK事件
+     * @param type 登录方式
+     */
+    private void loginSdkEvent(PFType type) {
+        Bundle bundle = new Bundle();
+        bundle.putString("method", type.name());
+        mFirebaseAnalytics.logEvent("p_login_platform_sdk", bundle);
+    }
+
+    /**
+     * 登录完成事件
+     * @param type 登录方式
+     */
+    private void loginFinishEvent(PFType type) {
+        Bundle bundle = new Bundle();
+        bundle.putString("method", type.name());
+        mFirebaseAnalytics.logEvent("p_login_platform_finish", bundle);
+    }
+
+    /**
+     * 登录异常事件
+     * @param type 登录方式
+     * @param param 异常
+     */
+    private void loginErrorEvent(PFType type, String param) {
+        Bundle bundle = new Bundle();
+        bundle.putString("method", type.name());
+        bundle.putString("error", param);
+        mFirebaseAnalytics.logEvent("p_login_platform_error", bundle);
     }
 }

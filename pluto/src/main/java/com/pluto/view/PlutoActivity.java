@@ -27,12 +27,13 @@ public class PlutoActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //沉浸式状态栏和导航栏设置
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        //刘海屏沉浸式状态栏和导航栏设置
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            WindowManager.LayoutParams lp = getWindow().getAttributes();
             lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+            getWindow().setAttributes(lp);
         }
-        getWindow().setAttributes(lp);
+        //
         hideBarMenu();
     }
 

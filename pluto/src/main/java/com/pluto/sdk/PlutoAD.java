@@ -6,12 +6,15 @@ import android.os.Looper;
 import android.util.Log;
 
 import com.applovin.mediation.MaxAd;
+import com.applovin.mediation.MaxAdFormat;
+import com.applovin.mediation.MaxAdRevenueListener;
 import com.applovin.mediation.MaxError;
 import com.applovin.mediation.MaxReward;
 import com.applovin.mediation.MaxRewardedAdListener;
 import com.applovin.mediation.ads.MaxRewardedAd;
 import com.applovin.sdk.AppLovinMediationProvider;
 import com.applovin.sdk.AppLovinSdk;
+import com.pluto.utils.ConvertUtils;
 
 public class PlutoAD implements MaxRewardedAdListener {
     //
@@ -24,6 +27,7 @@ public class PlutoAD implements MaxRewardedAdListener {
     private String mAdId;
     //
     private MaxRewardedAd mRewardedAd;
+
     //
     private boolean mAutoShow;
     //
@@ -163,7 +167,17 @@ public class PlutoAD implements MaxRewardedAdListener {
     @Override
     public void onUserRewarded(MaxAd maxAd, MaxReward maxReward) {
         Log.i(TAG, "onUserRewarded");
-        CoreSDK.getInstance().adPlayCompleted(maxReward.getAmount());
+        double revenue = maxAd.getRevenue(); // In USD
+        if (revenue == -1) {
+            CoreSDK.getInstance().adPlayCompleted(0);
+            return;
+        }
+        String temp = ConvertUtils.double2Decimal(revenue, 4, 4, false);
+        revenue = Double.parseDouble(temp);
+        double ratio = CoreSDK.getInstance().getAccount().getDivideIntoRatio();
+        //1USD -> 100000FISH
+        int amount = (int) (revenue * ratio * 100000);
+        CoreSDK.getInstance().adPlayCompleted(amount);
     }
 
     @Override
@@ -178,4 +192,5 @@ public class PlutoAD implements MaxRewardedAdListener {
     public void onAdClicked(MaxAd maxAd) {
         Log.i(TAG, "onAdClicked");
     }
+
 }

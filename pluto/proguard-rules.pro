@@ -39,6 +39,8 @@
 -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
 # 保护代码中的Annotation不被混淆
 -keepattributes *Annotation*
+# 保护JavascriptInterface不被混淆
+-keepattributes *JavascriptInterface*
 # 避免混淆泛型, 这在JSON实体映射时非常重要
 -keepattributes Signature
 # 抛出异常时保留代码行号
@@ -135,6 +137,8 @@
 -keep interface com.pluto.sdk.*Listener{*;}
 -keep public enum com.pluto.config.BackgroundType{*;}
 -keep public enum com.pluto.config.PFType{*;}
+# JS调用Java不被混淆
+-keep class com.pluto.view.WalletActivity$JSCallback{*;}
 # ----------------------------- 其他的 -----------------------------
 # 删除代码中Log相关的代码
 #-assumenosideeffects class android.util.Log {

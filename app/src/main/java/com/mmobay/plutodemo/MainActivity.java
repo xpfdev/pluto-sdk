@@ -2,7 +2,9 @@ package com.mmobay.plutodemo;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.DisplayCutout;
 import android.view.View;
+import android.view.WindowInsets;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;

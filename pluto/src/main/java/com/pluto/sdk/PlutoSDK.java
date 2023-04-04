@@ -63,7 +63,12 @@ public class PlutoSDK {
             return;
         }
         //
-        Log.i(TAG, "========== PLUTO SDK INFO ==========\nInitializing Pluto SDK\nversion: " + Config.Version + "\n====================================");
+        Log.i(TAG, "========== PLUTO SDK INFO ==========");
+        Log.i(TAG, "Initializing Pluto SDK");
+        Log.i(TAG, "Version: " + Config.Version);
+        Log.i(TAG, "Code: " + Config.Code);
+        Log.i(TAG, "Debug: " + isDebug);
+        Log.i(TAG, "====================================");
         mIsInit = true;
         mCoreSDK.initialize(activity, gameId, adUnitId, isDebug, listener);
     }
@@ -114,5 +119,13 @@ public class PlutoSDK {
      */
     public void getRankInfo(RankResponseListener listener) {
         mCoreSDK.getRankInfo(listener);
+    }
+
+    /**
+     * 获取钱包地址
+     * @return 返回当前登录用户的钱包地址
+     */
+    public String getWalletAddress() {
+        return mCoreSDK.getAccount().getWalletAddress();
     }
 }

@@ -258,6 +258,10 @@ public class CoreSDK {
             @Override
             public void onNetResponse(boolean success, String result, String error) {
                 sHandle.post(() -> {
+                    if (sIsDebug) {
+                        Log.i(TAG, "silentLogin result==>" + result);
+                    }
+                    //
                     if (!success) {
                         listener.onResponse();
                         return;
@@ -313,6 +317,10 @@ public class CoreSDK {
             @Override
             public void onNetResponse(boolean success, String result, String error) {
                 sHandle.post(() -> {
+                    if (sIsDebug) {
+                        Log.i(TAG, "platformLogin result==>" + result);
+                    }
+                    //
                     JSONObject jsonData = null;
                     String message = error;
                     if (success) {
@@ -440,6 +448,10 @@ public class CoreSDK {
             @Override
             public void onNetResponse(boolean success, String result, String error) {
                 sHandle.post(() -> {
+                    if (sIsDebug) {
+                        Log.i(TAG, "getVerifyCode result==>" + result);
+                    }
+                    //
                     boolean flag = false;
                     String message = error;
                     if (success) {
@@ -471,8 +483,11 @@ public class CoreSDK {
         NetUtil.get(urlPath, mAccount.getToken(), null, new NetListener() {
             @Override
             public void onNetResponse(boolean success, String result, String error) {
-                Log.i(TAG, "wallet info result==>" + result);
                 sHandle.post(() -> {
+                    if (sIsDebug) {
+                        Log.i(TAG, "getWalletInfo result==>" + result);
+                    }
+                    //
                     JSONObject jsonData = null;
                     String message = error;
                     if (success) {
@@ -514,6 +529,10 @@ public class CoreSDK {
             @Override
             public void onNetResponse(boolean success, String result, String error) {
                 sHandle.post(() -> {
+                    if (sIsDebug) {
+                        Log.i(TAG, "getFishPreSwapInfo result==>" + result);
+                    }
+                    //
                     boolean flag = false;
                     double ethAmount = 0;
                     String message = error;
@@ -557,6 +576,10 @@ public class CoreSDK {
             @Override
             public void onNetResponse(boolean success, String result, String error) {
                 sHandle.post(() -> {
+                    if (sIsDebug) {
+                        Log.i(TAG, "fishWithdraw result==>" + result);
+                    }
+                    //
                     boolean flag = false;
                     String message = error;
                     if (success) {
@@ -594,6 +617,10 @@ public class CoreSDK {
             @Override
             public void onNetResponse(boolean success, String result, String error) {
                 sHandle.post(() -> {
+                    if (sIsDebug) {
+                        Log.i(TAG, "ethWithdraw result==>" + result);
+                    }
+                    //
                     boolean flag = false;
                     String message = error;
                     if (success) {
@@ -629,6 +656,10 @@ public class CoreSDK {
             @Override
             public void onNetResponse(boolean success, String result, String error) {
                 sHandle.post(() -> {
+                    if (sIsDebug) {
+                        Log.i(TAG, "getWithdrawHistory result==>" + result);
+                    }
+                    //
                     boolean flag = false;
                     String message = error;
                     if (success) {
@@ -670,7 +701,9 @@ public class CoreSDK {
             @Override
             public void onNetResponse(boolean success, String result, String error) {
                 sHandle.post(() -> {
-                    Log.i(TAG, "save rank result==>" + result);
+                    if (sIsDebug) {
+                        Log.i(TAG, "saveRankData result==>" + result);
+                    }
                 });
             }
         });
@@ -698,7 +731,10 @@ public class CoreSDK {
             @Override
             public void onNetResponse(boolean success, String result, String error) {
                 sHandle.post(() -> {
-                    Log.i(TAG, "get rank info result==>" + result);
+                    if (sIsDebug) {
+                        Log.i(TAG, "getRankInfo result==>" + result);
+                    }
+                    //
                     RankInfo rankInfo = new RankInfo();
                     if (success) {
                         try {

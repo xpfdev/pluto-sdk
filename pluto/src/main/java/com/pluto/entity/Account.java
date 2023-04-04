@@ -3,6 +3,7 @@ package com.pluto.entity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -33,6 +34,8 @@ public class Account {
     private String mEmail;
     //用户钱包地址
     private String mWalletAddress;
+    //看广告获得代币分成比例
+    private double mDivideIntoRatio = 0.3;
     //小鱼代币余额
     private long mFishBalance = 0;
     //小鱼代币余额兑美元价值
@@ -114,6 +117,14 @@ public class Account {
 
     public void setWalletAddress(String value) {
         this.mWalletAddress = value;
+    }
+
+    public void setDivideIntoRatio(double mDivideIntoRatio) {
+        this.mDivideIntoRatio = mDivideIntoRatio;
+    }
+
+    public double getDivideIntoRatio() {
+        return mDivideIntoRatio;
     }
 
     public long getFishBalance() {
@@ -209,6 +220,7 @@ public class Account {
         setToken(null);
         setEmail(null);
         setWalletAddress(null);
+        setDivideIntoRatio(0.3);
         setFishBalance(0);
         setFishBalanceWorth(0);
         setFishBalance2Eth(0);
@@ -239,12 +251,16 @@ public class Account {
             }
             if (data.has("token")) {
                 setToken(data.getString("token"));
+                saveLocalToken();
             }
             if (data.has("email")) {
                 setEmail(data.getString("email"));
             }
             if (data.has("address")) {
                 setWalletAddress(data.getString("address"));
+            }
+            if (data.has("fishrate")) {
+                setDivideIntoRatio(data.getDouble("fishrate"));
             }
             if (data.has("fishbalance")) {
                 setFishBalance(data.getLong("fishbalance"));
@@ -284,8 +300,6 @@ public class Account {
         if (!isInit && oldFishBalance != newFishBalance) {
             CoreSDK.getInstance().fishBalanceChanged();
         }
-        //
-        saveLocalToken();
     }
 
     /**

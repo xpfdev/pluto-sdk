@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.pluto.config.PFType;
 import com.pluto.sdk.CoreSDK;
 import com.pluto.sdk.R;
@@ -27,6 +28,8 @@ import java.util.regex.Pattern;
 public class EmailActivity extends PlutoActivity {
     //
     private static final String TAG = "PlutoEmailActivity";
+    //
+    private FirebaseAnalytics mFirebaseAnalytics = null;
     //
     private RelativeLayout mLayoutSend;
     //
@@ -49,6 +52,8 @@ public class EmailActivity extends PlutoActivity {
         super.onCreate(savedInstanceState);
         int resId = CoreSDK.getLowScreen() ? R.layout.pluto_email_view_low : R.layout.pluto_email_view;
         setContentView(resId);
+        //
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         // 设置点击输入框以外区域关闭键盘
         RelativeLayout layoutContent = findViewById(R.id.layout_main_content);
         setCloseKeyboard(layoutContent);
@@ -140,17 +145,25 @@ public class EmailActivity extends PlutoActivity {
             return;
         }
         //
+        mFirebaseAnalytics.logEvent("p_send_code_start", new Bundle());
+        //
+        CoreSDK.showLoading(this, 30);
         CoreSDK.getInstance().getVerifyCode(mEmail, new CommNetResponseListener() {
             @Override
             public void onResponse(boolean success, String message) {
+                CoreSDK.hideLoading();
                 if (EmailActivity.this.isDestroyed()) {
                     return;
                 }
                 //
                 if (success) {
+                    mFirebaseAnalytics.logEvent("p_send_code_finish", new Bundle());
+                    //
                     Toast.makeText(EmailActivity.this, "Verify code send success", Toast.LENGTH_SHORT).show();
                     startCountDown();
                 } else {
+                    mFirebaseAnalytics.logEvent("p_send_code_error", new Bundle());
+                    //
                     if (message != null && !message.equals("")) {
                         Toast.makeText(EmailActivity.this, message, Toast.LENGTH_SHORT).show();
                     }
@@ -168,19 +181,28 @@ public class EmailActivity extends PlutoActivity {
             return;
         }
         //
+        mFirebaseAnalytics.logEvent("p_login_email_start", new Bundle());
+        //
         try {
             JSONObject obj = new JSONObject();
             obj.put("email", mEmail);
             obj.put("code", mCode);
+            CoreSDK.showLoading(this, 30);
             CoreSDK.getInstance().platformLogin(obj, PFType.EMAIL, new CommNetResponseListener() {
                 @Override
                 public void onResponse(boolean success, String message) {
+                    CoreSDK.hideLoading();
                     if (EmailActivity.this.isDestroyed()) {
                         return;
                     }
+                    //
                     if (success) {
+                        mFirebaseAnalytics.logEvent("p_login_email_finish", new Bundle());
+                        //
                         back(LoginActivity.RESULT_CODE_LOGIN_SUCCESS);
                     } else {
+                        mFirebaseAnalytics.logEvent("p_login_email_error", new Bundle());
+                        //
                         if (message != null && !message.equals("")) {
                             Toast.makeText(EmailActivity.this, message, Toast.LENGTH_SHORT).show();
                         }
