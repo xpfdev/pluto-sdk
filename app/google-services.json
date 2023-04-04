@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "176630949276",
+    "project_id": "pluto-1000",
+    "storage_bucket": "pluto-1000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176630949276:android:c01e53d9b4ee1874a8d459",
+        "android_client_info": {
+          "package_name": "com.mmobay.plutodemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176630949276-30flt605j987l8sosnt2o111uk8s002a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mmobay.plutodemo",
+            "certificate_hash": "1128207f31cded27f34a965aa1a3b2ebfe90a8b5"
+          }
+        },
+        {
+          "client_id": "176630949276-21cdeqc94ptjse1ecumj1lvr617vn04u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdudo_JLrCHU4QA4QcMYmnCzWcO012IUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176630949276-21cdeqc94ptjse1ecumj1lvr617vn04u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

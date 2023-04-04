@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PlutoDemo</string>
+    <string name="game_id">1000</string>
+    <string name="ad_unit_id">117663d74544986a</string>
+    <string name="facebook_app_id">1387889982050197</string>
+    <string name="facebook_login_protocol_scheme">fb1387889982050197</string>
+    <string name="facebook_client_token">bd17f6d29f025180df56fd970d9f8903</string>
+    <string name="google_server_client_id">176630949276-t08ve7qa2ssd92jjr10ai033i4ohrl6i.apps.googleusercontent.com</string>
+    <string name="google_ad_application_id">ca-app-pub-1709997098221457~7153083822</string>
+</resources>

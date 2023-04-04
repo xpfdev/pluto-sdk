@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_launcher_background">
+
+    <RelativeLayout
+        android:id="@+id/layoutInfo"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp">
+
+        <TextView
+            android:id="@+id/txtTemp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:text="Account:"/>
+
+        <TextView
+            android:id="@+id/txtUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtTemp1"
+            android:textSize="22sp"
+            android:text="Guest"/>
+
+        <TextView
+            android:id="@+id/txtTemp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtUser"
+            android:textSize="26sp"
+            android:text="Coin:"/>
+
+        <TextView
+            android:id="@+id/txtCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtTemp2"
+            android:textSize="22sp"
+            android:text="0"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layoutInfo"
+        android:paddingTop="50dp"
+        android:paddingBottom="30dp">
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:background="@color/purple_200"
+            android:text="登录"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/coinAccount"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:background="@color/purple_200"
+            android:visibility="invisible"
+            android:text="金币账户"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/watchAD"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="80dp"
+            android:background="@color/purple_200"
+            android:text="播放广告"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/setting"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="160dp"
+            android:background="@color/purple_200"
+            android:text="设置"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layoutButton">
+
+        <TextView
+            android:id="@+id/chooseColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="选择背景色"/>
+
+        <RadioGroup
+            android:id="@+id/rgColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:layout_below="@id/chooseColor">
+
+            <RadioButton
+                android:id="@+id/rbGreen"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:textColor="#C7E89A"
+                android:textStyle="bold"
+                android:text="绿色"/>
+
+            <RadioButton
+                android:id="@+id/rbYellow"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:textColor="#FADB9A"
+                android:textStyle="bold"
+                android:text="黄色"/>
+
+            <RadioButton
+                android:id="@+id/rbRed"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:textColor="#F1A17D"
+                android:textStyle="bold"
+                android:text="红色"/>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
