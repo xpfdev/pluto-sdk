@@ -34,6 +34,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.jiguang.analytics.android.api.CalculateEvent;
 import cn.jiguang.analytics.android.api.JAnalyticsInterface;
 import cn.jiguang.analytics.android.api.LoginEvent;
 
@@ -819,6 +820,12 @@ public class CoreSDK {
             allAmount = mAccount.getFishBalance() + addAmount;
             //
             startGetWalletInfoTask();
+            //
+            Activity activity = getRootActivity();
+            if (activity != null) {
+                CalculateEvent cEvent = new CalculateEvent("watch_ad_coin_reward", addAmount);
+                JAnalyticsInterface.onEvent(activity, cEvent);
+            }
         } else {
             addAmount = 0;
         }

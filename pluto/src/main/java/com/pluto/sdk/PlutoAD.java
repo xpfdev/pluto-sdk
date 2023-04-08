@@ -184,10 +184,8 @@ public class PlutoAD implements MaxRewardedAdListener {
         //
         Activity activity = CoreSDK.getRootActivity();
         if (activity != null) {
-            CalculateEvent cEvent1 = new CalculateEvent("watch_ad_coin_reward", amount);
-            JAnalyticsInterface.onEvent(activity, cEvent1);
-            CalculateEvent cEvent2 = new CalculateEvent("watch_ad_dollar_revenue", revenue * 10000);
-            JAnalyticsInterface.onEvent(activity, cEvent2);
+            CalculateEvent cEvent = new CalculateEvent("watch_ad_dollar_revenue", revenue * 10000);
+            JAnalyticsInterface.onEvent(activity, cEvent);
         }
     }
 
