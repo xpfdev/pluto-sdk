@@ -201,16 +201,20 @@ public class EmailActivity extends PlutoActivity {
                         //
                         back(LoginActivity.RESULT_CODE_LOGIN_SUCCESS);
                     } else {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("error", "verify error");
                         mFirebaseAnalytics.logEvent("p_login_email_error", new Bundle());
-                        //
-                        if (message != null && !message.equals("")) {
-                            Toast.makeText(EmailActivity.this, message, Toast.LENGTH_SHORT).show();
-                        }
                     }
                 }
             });
         } catch (JSONException e) {
             e.printStackTrace();
+            //
+            Bundle bundle = new Bundle();
+            bundle.putString("error", "json error");
+            mFirebaseAnalytics.logEvent("p_login_email_error", new Bundle());
+            //
+            CoreSDK.getInstance().loginFailed(PFType.EMAIL,null);
         }
     }
 

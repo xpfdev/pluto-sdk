@@ -16,6 +16,9 @@ import com.applovin.sdk.AppLovinMediationProvider;
 import com.applovin.sdk.AppLovinSdk;
 import com.pluto.utils.ConvertUtils;
 
+import cn.jiguang.analytics.android.api.CalculateEvent;
+import cn.jiguang.analytics.android.api.JAnalyticsInterface;
+
 public class PlutoAD implements MaxRewardedAdListener {
     //
     private static final String TAG = "PlutoAD";
@@ -178,6 +181,14 @@ public class PlutoAD implements MaxRewardedAdListener {
         //1USD -> 100000FISH
         int amount = (int) (100000 * revenue * ratio);
         CoreSDK.getInstance().adPlayCompleted(amount);
+        //
+        Activity activity = CoreSDK.getRootActivity();
+        if (activity != null) {
+            CalculateEvent cEvent1 = new CalculateEvent("watch_ad_coin_reward", amount);
+            JAnalyticsInterface.onEvent(activity, cEvent1);
+            CalculateEvent cEvent2 = new CalculateEvent("watch_ad_dollar_revenue", revenue * 10000);
+            JAnalyticsInterface.onEvent(activity, cEvent2);
+        }
     }
 
     @Override

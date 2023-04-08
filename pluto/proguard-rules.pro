@@ -61,7 +61,10 @@
 -keep public class * extends android.preference.Preference
 -keep public class * extends android.view.View
 -keep class android.support.** {*;}## 保留support下的所有类及其内部类
-#表示不混淆上面声明的类，最后这两个类我们基本也用不上，是接入Google原生的一些服务时使用的。
+-keep class androidx.** { *; }
+-keep class com.google.android.** { *; }
+-keep class cn.jiguang.** { *; }
+#表示不混淆上面声明的类
 #----------------------------------------------------
 # 保留继承的
 -keep public class * extends android.support.v4.**

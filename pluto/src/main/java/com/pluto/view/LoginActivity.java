@@ -120,18 +120,21 @@ public class LoginActivity extends PlutoActivity {
                 loginSuccess(PFType.GOOGLE, userId, token);
             } catch (ApiException e) {
                 //
-                loginErrorEvent(PFType.GOOGLE, "api error " + e.getStatusCode());
+                loginSDKErrorEvent(PFType.GOOGLE, "api error " + e.getStatusCode());
                 //
                 Log.i(TAG, "one tap get credential code==>" + e.getStatusCode());
-                CoreSDK.getInstance().loginFailed(null);
+                String message = null;
                 switch (e.getStatusCode()) {
                     case CommonStatusCodes.DEVELOPER_ERROR:
                         Log.i(TAG, "getStatusCode==>" + "DEVELOPER_ERROR");
                         break;
                     case CommonStatusCodes.CANCELED:
                         Log.i(TAG, "getStatusCode==>" + "CANCELED");
+                        message = "Cancel login";
                         break;
                 }
+                //
+                CoreSDK.getInstance().loginFailed(PFType.GOOGLE, message);
             }
         }
         //
@@ -162,10 +165,10 @@ public class LoginActivity extends PlutoActivity {
             //
             if (serverClientId == null || serverClientId.equals("")) {
                 //
-                loginErrorEvent(PFType.GOOGLE, "clientId error");
+                loginSDKErrorEvent(PFType.GOOGLE, "clientId error");
                 //
                 Log.w(TAG, "Google server clientId is empty");
-                CoreSDK.getInstance().loginFailed(null);
+                CoreSDK.getInstance().loginFailed(PFType.GOOGLE, null);
                 return;
             }
             //
@@ -190,21 +193,21 @@ public class LoginActivity extends PlutoActivity {
                             RC_ONE_TAP, null, 0, 0, 0, null);
                 } catch (IntentSender.SendIntentException e) {
                     //
-                    loginErrorEvent(PFType.GOOGLE, "intent error");
+                    loginSDKErrorEvent(PFType.GOOGLE, "intent error");
                     //
                     Log.w(TAG, "google login error==>" + e);
-                    CoreSDK.getInstance().loginFailed(null);
+                    CoreSDK.getInstance().loginFailed(PFType.GOOGLE, null);
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 //
-                loginErrorEvent(PFType.GOOGLE, "listener error");
+                loginSDKErrorEvent(PFType.GOOGLE, "listener error");
                 //
                 Log.w(TAG, "google login failure==>" + e);
                 CoreSDK.hideLoading();
-                CoreSDK.getInstance().loginFailed(null);
+                CoreSDK.getInstance().loginFailed(PFType.GOOGLE, null);
             }
         });
     }
@@ -237,20 +240,20 @@ public class LoginActivity extends PlutoActivity {
                 @Override
                 public void onCancel() {
                     //
-                    loginErrorEvent(PFType.FACEBOOK, "cancel error");
+                    loginSDKErrorEvent(PFType.FACEBOOK, "cancel error");
                     //
                     Log.i(TAG, "Facebook login cancel");
-                    CoreSDK.getInstance().loginFailed(null);
+                    CoreSDK.getInstance().loginFailed(PFType.FACEBOOK, "Cancel login");
                 }
 
                 @Override
                 public void onError(@NonNull FacebookException e) {
                     //
-                    loginErrorEvent(PFType.FACEBOOK, "inner error");
+                    loginSDKErrorEvent(PFType.FACEBOOK, "inner error");
                     //
                     Log.i(TAG, "Facebook login error: " + e);
                     LoginManager.getInstance().logOut();
-                    CoreSDK.getInstance().loginFailed(null);
+                    CoreSDK.getInstance().loginFailed(PFType.FACEBOOK, null);
                 }
             });
         }
@@ -294,15 +297,15 @@ public class LoginActivity extends PlutoActivity {
                         //
                         finish();
                     } else {
-                        if (message != null && !message.equals("")) {
-                            Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
-                        }
+                        loginPlatformErrorEvent(type, "verify error");
                     }
                 }
             });
         } catch (JSONException e) {
             e.printStackTrace();
-            CoreSDK.getInstance().loginFailed(null);
+            CoreSDK.getInstance().loginFailed(type,null);
+            //
+            loginPlatformErrorEvent(type, "json error");
         }
     }
 
@@ -337,11 +340,23 @@ public class LoginActivity extends PlutoActivity {
     }
 
     /**
-     * 登录异常事件
+     * 登录SDK异常事件
      * @param type 登录方式
      * @param param 异常
      */
-    private void loginErrorEvent(PFType type, String param) {
+    private void loginSDKErrorEvent(PFType type, String param) {
+        Bundle bundle = new Bundle();
+        bundle.putString("method", type.name());
+        bundle.putString("error", param);
+        mFirebaseAnalytics.logEvent("p_login_sdk_error", bundle);
+    }
+
+    /**
+     * 登录平台异常事件
+     * @param type 登录方式
+     * @param param 异常
+     */
+    private void loginPlatformErrorEvent(PFType type, String param) {
         Bundle bundle = new Bundle();
         bundle.putString("method", type.name());
         bundle.putString("error", param);

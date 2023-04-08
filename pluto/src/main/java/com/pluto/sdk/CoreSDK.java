@@ -34,6 +34,9 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.jiguang.analytics.android.api.JAnalyticsInterface;
+import cn.jiguang.analytics.android.api.LoginEvent;
+
 public class CoreSDK {
     //
     private static final String TAG = "CoreSDK";
@@ -212,6 +215,9 @@ public class CoreSDK {
      * @param listener 回调监听
      */
     public void initialize(Activity activity, String gameId, String adUnitId, boolean isDebug, PlutoSDKListener listener) {
+        //初始化极光SDK
+        JAnalyticsInterface.init(activity);
+        //
         checkScreenAdapt(activity);
         sRootActivity = activity;
         sIsDebug = isDebug;
@@ -339,12 +345,12 @@ public class CoreSDK {
                     }
                     //
                     if (jsonData == null) {
-                        loginFailed(message);
-                        listener.onResponse(false, null);
+                        loginFailed(type, message);
+                        listener.onResponse(false, message);
                     } else {
                         mAccount.setLoginType(type);
                         mAccount.parseData(jsonData);
-                        loginCompleted();
+                        loginCompleted(type);
                         listener.onResponse(true, message);
                     }
                 });
@@ -762,8 +768,9 @@ public class CoreSDK {
 
     /**
      * 登录完成
+     * @param type 登录类型
      */
-    public void loginCompleted() {
+    public void loginCompleted(PFType type) {
         mIsLogin = true;
         mPlutoAD.setUserId(mAccount.getPlutoUid());
         //
@@ -774,14 +781,18 @@ public class CoreSDK {
         Activity activity = getRootActivity();
         if (activity != null) {
             Toast.makeText(activity, "Login success", Toast.LENGTH_SHORT).show();
+            //
+            LoginEvent lEvent = new LoginEvent(type.name(), true);
+            JAnalyticsInterface.onEvent(activity, lEvent);
         }
     }
 
     /**
      * 登录失败
+     * @param type 登录类型
      * @param message 提示信息
      */
-    public void loginFailed(String message) {
+    public void loginFailed(PFType type, String message) {
         if (message == null) {
             message = "Login failure";
         }
@@ -792,6 +803,9 @@ public class CoreSDK {
         Activity activity = getRootActivity();
         if (activity != null) {
             Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
+            //
+            LoginEvent lEvent = new LoginEvent(type.name(), false);
+            JAnalyticsInterface.onEvent(activity, lEvent);
         }
     }
 
