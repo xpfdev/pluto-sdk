@@ -1,6 +1,6 @@
 # Pluto SDK接入说明
 
-latest version:1.0.1
+latest version:1.0.2
 
 Add it to your build.gradle with:
 ```gradle
