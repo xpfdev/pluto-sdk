@@ -2,9 +2,9 @@ package com.pluto.config;
 
 public class Config {
     //
-    public static String Version = "1.0.1";
+    public static String Version = "1.0.2";
     //
-    public static String Code = "1";
+    public static String Code = "2";
     //Gitbook钱包说明地址
     public static final String GitbookUrl = "https://tapfantasy.gitbook.io/plutowallet/";
     //
